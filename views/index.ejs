@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cloud Log System with Node.js</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <META HTTP-EQUIV="Refresh" CONTENT="5">
+</head>
+<body>
+    <% include nav %>
+    <div style="margin: 14px 7px">
+
+        <table class="gradientTable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (var i = 0; i < messages.length; ++ i) {
+                    var message = messages[i];
+                    var year = message.recvDate.getFullYear();
+                    var month = message.recvDate.getMonth() + 1;
+                    var day = message.recvDate.getDate();
+                    var hour = message.recvDate.getHours();
+                    var minute = message.recvDate.getMinutes();
+                    var second = message.recvDate.getSeconds();
+                 %>
+            <tr>
+                <td class="row"><%= year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second %></td>
+                <td class="row"><%= messages[i].title %></td>
+                <td class="row"><%= messages[i].body %></td>
+            </tr>
+                <% } %>
+            </tbody>
+
+        </table>
+    </div>
+</body>
+</html>

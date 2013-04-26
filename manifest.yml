@@ -1,0 +1,17 @@
+---
+applications:
+  .:
+    name: cloudLog
+    framework:
+      name: node
+      info:
+        mem: 64M
+        description: Node.js Application
+        exec: 
+    infra: aws
+    url: cloudLog.aws.af.cm
+    mem: 512M
+    instances: 1
+    services:
+      mongodb-puncha:
+        type: mongodb
